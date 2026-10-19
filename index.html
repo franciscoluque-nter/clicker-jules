@@ -172,53 +172,6 @@
     </div>
   </div>
 
-  <script>
-    const clickCountEl = document.getElementById('click-count');
-    const cookieBtn = document.getElementById('cookie-btn');
-    const resetBtn = document.getElementById('reset-btn');
-
-    // Load initial count from localStorage or default to 0
-    let count = parseInt(localStorage.getItem('cookieClickCount')) || 0;
-    clickCountEl.textContent = count;
-
-    // Cookie click handler
-    cookieBtn.addEventListener('click', (event) => {
-      count++;
-      clickCountEl.textContent = count;
-      localStorage.setItem('cookieClickCount', count);
-
-      // Create floating +1 effect
-      createFloatingText(event);
-    });
-
-    // Create floating +1 text animation
-    function createFloatingText(event) {
-      const rect = cookieBtn.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-
-      const floatEl = document.createElement('div');
-      floatEl.className = 'floating-text';
-      floatEl.textContent = '+1';
-
-      // Position relative to cookie wrapper
-      floatEl.style.left = `${x}px`;
-      floatEl.style.top = `${y}px`;
-
-      cookieBtn.appendChild(floatEl);
-
-      // Remove element after animation completes
-      floatEl.addEventListener('animationend', () => {
-        floatEl.remove();
-      });
-    }
-
-    // Reset button handler
-    resetBtn.addEventListener('click', () => {
-      count = 0;
-      clickCountEl.textContent = count;
-      localStorage.setItem('cookieClickCount', count);
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

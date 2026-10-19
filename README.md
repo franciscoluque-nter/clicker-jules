@@ -9,6 +9,7 @@ A simple, responsive interactive web application featuring a centered cookie but
 - **Interactive Visual Effects**: Generates floating `+1` text animations at the point of interaction whenever the cookie is clicked.
 - **Cookie Persistence**: Utilizes browser HTTP cookies (`document.cookie`) to store your click count so progress is preserved across page reloads.
 - **Reset Functionality**: Includes a reset button to restore the click counter back to zero anytime.
+- **Client-Side DevTools Prevention**: Disables right-click context menus and intercepts common developer tools keyboard shortcuts (F12, `Ctrl+Shift+I/J/C`, `Ctrl+U`) to discourage basic client-side tampering (note: client-side restrictions are for user experience/guidance, as true web security relies on server-side logic).
 
 ## How to Run
 

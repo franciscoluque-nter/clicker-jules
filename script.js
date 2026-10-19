@@ -68,4 +68,27 @@ document.addEventListener('DOMContentLoaded', () => {
     clickCountEl.textContent = count;
     setCookie('cookieClickCount', count);
   });
+
+  // Client-side protections to discourage opening Developer Tools
+  // Prevent right-click context menu
+  document.addEventListener('contextmenu', (event) => {
+    event.preventDefault();
+  });
+
+  // Prevent keyboard shortcuts for DevTools (F12, Ctrl+Shift+I/J/C, Ctrl+U, Cmd+Opt+I/J/C)
+  document.addEventListener('keydown', (event) => {
+    const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+    const isInspectShortcut =
+      event.key === 'F12' ||
+      ((event.ctrlKey || (isMac && event.metaKey)) &&
+        event.shiftKey &&
+        ['I', 'J', 'C', 'i', 'j', 'c'].includes(event.key)) ||
+      ((event.ctrlKey || (isMac && event.metaKey)) &&
+        ['U', 'u'].includes(event.key));
+
+    if (isInspectShortcut) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  });
 });

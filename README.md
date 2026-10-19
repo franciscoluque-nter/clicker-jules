@@ -1,23 +1,39 @@
 # Cookie Clicker Web Application
 
-A simple, responsive interactive web application featuring a centered cookie button and a counter that increments with every click.
+A simple, responsive, and interactive Cookie Clicker web application built with HTML, CSS, and plain JavaScript.
 
 ## Features
 
-- **Centered Cookie UI**: A styled chocolate chip cookie centered on the screen with interactive hover and click animations.
-- **Click Counter**: Displays the total number of times the cookie has been clicked.
-- **Interactive Visual Effects**: Generates floating `+1` text animations at the point of interaction whenever the cookie is clicked.
-- **Cookie Persistence**: Utilizes browser HTTP cookies (`document.cookie`) to store your click count so progress is preserved across page reloads.
-- **Reset Functionality**: Includes a reset button to restore the click counter back to zero anytime.
-- **Client-Side DevTools Prevention**: Disables right-click context menus and intercepts common developer tools keyboard shortcuts (F12, `Ctrl+Shift+I/J/C`, `Ctrl+U`) to discourage basic client-side tampering (note: client-side restrictions are for user experience/guidance, as true web security relies on server-side logic).
+- **Centered Interactive Cookie**: A styled CSS cookie complete with chocolate chips and interactive hover/active click scale effects.
+- **Click Counter & Floating Popups**: Tracks total cookie clicks with an animated `+1` popup effect appearing at the cursor location on each click.
+- **HTTP Cookie Persistence**: Uses standard browser cookies (`cookieClickCount`) to store click count across page reloads.
+- **Achievement & Trophy System**: Unlocks trophy badges dynamically as click milestones are reached:
+  - 🥉 **Bronze Cookie**: 10 Clicks
+  - 🥈 **Silver Cookie**: 100 Clicks
+  - 🥇 **Gold Cookie**: 1000 Clicks
+- **Reset Functionality**: Includes a reset button to reset click count and trophy statuses back to zero.
+- **DevTools Restrictions**: Intercepts context menu (right-click) and common Developer Tools hotkeys (`F12`, `Ctrl+Shift+I/J/C`, `Cmd+Option+I/J/C`, `Ctrl+U`) to prevent accidental or unauthorized cookie tampering.
+
+## File Structure
+
+```text
+├── index.html             # Structure, CSS styling, and trophy achievement layout
+├── script.js              # Click tracking, cookie helper functions, achievements logic, and DevTools blocking
+├── README.md              # Project documentation
+└── verification/          # Automated test scripts
+    └── test_app.py        # Playwright test suite for app features and achievements
+```
 
 ## How to Run
 
-1. Simply open `index.html` in any modern web browser (e.g., double-click `index.html` or open via browser).
-2. Alternatively, serve the files using a local HTTP server such as `npx serve .` or Python's `python3 -m http.server 8000`.
+1. Open `index.html` in any web browser, or serve it using a local web server (e.g., `python3 -m http.server 8080`).
+2. Click the cookie to increase your score and unlock trophies.
 
-## Project Structure
+## Testing
 
-- `index.html`: Main HTML file containing the structure and styles for the web application.
-- `script.js`: External JavaScript file containing counter logic, visual animations, and HTTP cookie management functions (`setCookie`, `getCookie`).
-- `README.md`: Documentation for the project.
+Automated Playwright tests are located in the `verification/` folder:
+
+```bash
+# Run automated verification tests
+python3 verification/test_app.py
+```

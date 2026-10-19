@@ -20,8 +20,9 @@
       align-items: center;
       justify-content: center;
       user-select: none;
-      overflow: hidden;
+      overflow-x: hidden;
       color: #3e2723;
+      padding: 1rem;
     }
 
     .container {
@@ -31,6 +32,8 @@
       justify-content: center;
       text-align: center;
       position: relative;
+      max-width: 600px;
+      width: 100%;
     }
 
     h1 {
@@ -43,8 +46,8 @@
     .counter-display {
       font-size: 2rem;
       font-weight: bold;
-      margin-bottom: 2rem;
-      background: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1.5rem;
+      background: rgba(255, 255, 255, 0.85);
       padding: 0.5rem 1.5rem;
       border-radius: 30px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -55,11 +58,12 @@
       position: relative;
       cursor: pointer;
       display: inline-block;
+      margin-bottom: 1.5rem;
     }
 
     .cookie {
-      width: 220px;
-      height: 220px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
       background: radial-gradient(circle at 35% 35%, #e6a756, #b06d28);
       box-shadow:
@@ -122,8 +126,84 @@
       }
     }
 
+    /* Achievements Section */
+    .achievements-section {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.75);
+      border-radius: 20px;
+      padding: 1rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      margin-bottom: 1.5rem;
+    }
+
+    .achievements-section h2 {
+      font-size: 1.3rem;
+      color: #4e342e;
+      margin-bottom: 0.8rem;
+    }
+
+    .trophies-grid {
+      display: flex;
+      justify-content: space-around;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .trophy-card {
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px solid #d7ccc8;
+      border-radius: 12px;
+      padding: 0.8rem 0.5rem;
+      flex: 1;
+      min-width: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.3s ease;
+      opacity: 0.5;
+      filter: grayscale(100%);
+    }
+
+    .trophy-card.unlocked {
+      opacity: 1;
+      filter: grayscale(0%);
+      border-color: #ffb300;
+      box-shadow: 0 4px 12px rgba(255, 179, 0, 0.3);
+      background: #fff8e1;
+      transform: translateY(-2px);
+    }
+
+    .trophy-icon {
+      font-size: 2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .trophy-title {
+      font-weight: bold;
+      font-size: 0.9rem;
+      color: #4e342e;
+    }
+
+    .trophy-desc {
+      font-size: 0.75rem;
+      color: #6d4c41;
+      margin-top: 0.2rem;
+    }
+
+    .trophy-status {
+      font-size: 0.75rem;
+      font-weight: bold;
+      margin-top: 0.4rem;
+      color: #8d6e63;
+    }
+
+    .trophy-card.unlocked .trophy-status {
+      color: #2e7d32;
+    }
+
     .controls {
-      margin-top: 2.5rem;
+      margin-top: 0.5rem;
     }
 
     .reset-btn {
@@ -164,6 +244,31 @@
         <div class="chip chip-5"></div>
         <div class="chip chip-6"></div>
         <div class="chip chip-7"></div>
+      </div>
+    </div>
+
+    <!-- Achievements Panel -->
+    <div class="achievements-section">
+      <h2>🏆 Achievements</h2>
+      <div class="trophies-grid">
+        <div class="trophy-card" id="trophy-10">
+          <div class="trophy-icon">🥉</div>
+          <div class="trophy-title">Bronze Cookie</div>
+          <div class="trophy-desc">10 Clicks</div>
+          <div class="trophy-status" id="status-10">Locked 🔒</div>
+        </div>
+        <div class="trophy-card" id="trophy-100">
+          <div class="trophy-icon">🥈</div>
+          <div class="trophy-title">Silver Cookie</div>
+          <div class="trophy-desc">100 Clicks</div>
+          <div class="trophy-status" id="status-100">Locked 🔒</div>
+        </div>
+        <div class="trophy-card" id="trophy-1000">
+          <div class="trophy-icon">🥇</div>
+          <div class="trophy-title">Gold Cookie</div>
+          <div class="trophy-desc">1000 Clicks</div>
+          <div class="trophy-status" id="status-1000">Locked 🔒</div>
+        </div>
       </div>
     </div>
 
